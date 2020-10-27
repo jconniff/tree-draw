@@ -1,0 +1,4 @@
+// JavaScript Document
+var treeDefault = [{"startThick":58,"decreThick":1,"dist":15,"distR":5,"angleR":0.4,"forkAngle":40,"forkAngleR":1,"riseAngle":0.2,"untilFork":1,"untilForkR":2,"alpha":1,"spurFrequency":0,"color":"rgba(0,0,0,0.3)"},{"startThick":48,"decreThick":0.28,"dist":10,"distR":1,"angleR":0,"forkAngle":30,"forkAngleR":3,"riseAngle":0.05,"untilFork":17,"untilForkR":3,"spurFrequency":1,"color":"rgba(33,150,243,1)"},{"startThick":31,"decreThick":0.5,"dist":10,"distR":1,"angleR":5,"forkAngle":30,"forkAngleR":3,"riseAngle":0.05,"untilFork":7,"untilForkR":3,"spurFrequency":2,"color":"rgba(255,0,0,0.3)"},{"startThick":15,"decreThick":0.26,"dist":8,"distR":1,"angleR":5,"forkAngle":30,"forkAngleR":3,"riseAngle":0.08,"untilFork":2,"untilForkR":0,"spurFrequency":4.5,"color":"rgba(80,150,80,0.3)"}];
+
+
