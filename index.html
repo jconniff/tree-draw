@@ -36,7 +36,7 @@
     margin-block-end: 0em;
   }
   .subtitle{
-    margin-left: 9px;
+    font: normal 14px Verdana, Arial, sans-serif;
   }
   H2{
     font-size: 18px;
@@ -95,10 +95,16 @@
     color: #FF9800;
     font-family: georgia, serif;
   }
+  .slider {
+    vertical-align: middle;;
+  }
   .val-label {
     display: inline-block;
     width: 30px;
     text-align: left;
+  }
+  .range{
+    color: #bbb;
   }
   .info {
     width: 16px;
@@ -138,13 +144,8 @@
   }
 </style>
 <body>
-<h1>Draw a Tree</h1>
-
-<div class="subtitle">& Edit Its Properties
-<br>
+<h1>Draw a Tree <span class="subtitle">& Edit Its Properties</span></h1>
 <!-- comment -->
-</div>
-
 <div class="row">
   <div class="column-a" >
     <canvas id="myCanvas" width="800" height="750" style="border:1px solid #d3d3d3; background: #fff">
@@ -191,84 +192,84 @@
         alt="When any segment of a tree is equal to this Starting Thickness, 
         this Section will begin. For the trunk, it's base thickness." 
         onchange=sendSliderValToTreeObj(this) onmouseover=setInfoText(this) onmousemove=sliderLabelUpdate(this)>
-        <label class="val-label">2</label><span></span>
+        <label class="val-label">2</label><span class="range"></span>
         <br>
         
         <label class="pre-label">Rate of Taper: </label>
         <input id="decreThick" class="slider" type="range" min="0.02" max="3" step="0.02" value="0.5"
         alt="Each successive tree segment's width gets narrower by this pixel width"
         onchange=sendSliderValToTreeObj(this) onmouseover=setInfoText(this) onmousemove=sliderLabelUpdate(this)>
-        <label class="val-label">5</label><span>range:0.02 - 3</span>
+        <label class="val-label">5</label><span class="range">range:0.02 - 3</span>
         <br>
         
         <label class="pre-label">Length of Segment: </label>
         <input id="dist" class="slider" type="range" min="1" max="20" value="10" 
         alt="This is the length of each segment in this section"
         onchange=sendSliderValToTreeObj(this) onmouseover=setInfoText(this) onmousemove=sliderLabelUpdate(this)>
-        <label class="val-label">10</label><span>range:1 - 20</span>
+        <label class="val-label">10</label><span class="range">range:1 - 20</span>
         <br>
                                                                                        
         <label class="pre-label"><i>Rand</i> Length of Segment: </label>
         <input id="distR" class="slider" type="range" min="0" max="10" value="1"
         alt="Percent of randomization of length of segments"
         onchange=sendSliderValToTreeObj(this) onmouseover=setInfoText(this) onmousemove=sliderLabelUpdate(this)>
-        <label class="val-label">1</label><span>range:0 - 10</span>
+        <label class="val-label">1</label><span class="range">range:0 - 10</span>
         <br>
 
         <label class="pre-label"><i>Rand</i> Segment Angle: </label>
         <input id="angleR" class="slider" type="range" min="0" max="10" step="0.2" value="10"
         alt="The angle of growth of each segment is randomized by this percentage. (wiggliness)"
         onchange=sendSliderValToTreeObj(this) onmouseover=setInfoText(this) onmousemove=sliderLabelUpdate(this)>
-        <label class="val-label">10</label><span>range:0 - 10</span>
+        <label class="val-label">10</label><span class="range">range:0 - 10</span>
         <br>
 
         <label class="pre-label">Fork Angle: </label>
         <input id="forkAngle" class="slider" type="range" min="1" max="100" value="10"
         alt="The degree of angle a fork from it's previous segment"
         onchange=sendSliderValToTreeObj(this) onmouseover=setInfoText(this) onmousemove=sliderLabelUpdate(this)>
-        <label class="val-label">10</label><span>range:1 - 50</span>
+        <label class="val-label">10</label><span class="range">range:1 - 50</span>
         <br>
 
         <label class="pre-label"><i>Rand</i> Fork Angle: </label>
         <input id="forkAngleR" class="slider" type="range" min="1" max="10" value="10"
         alt="Randomization percent of the Fork Angle"
         onchange=sendSliderValToTreeObj(this) onmouseover=setInfoText(this) onmousemove=sliderLabelUpdate(this)>
-        <label class="val-label">10</label><span>range:1 - 10</span>
+        <label class="val-label">10</label><span class="range">range:1 - 10</span>
         <br>
 
         <label class="pre-label">Rise Angle: </label>
         <input id="riseAngle" class="slider" type="range" min="0" max="0.50" step="0.01" value="0.05"
         alt="When segments start to grow more horizontal, this increases their upward angle"
         onchange=sendSliderValToTreeObj(this) onmouseover=setInfoText(this) onmousemove=sliderLabelUpdate(this)>
-        <label class="val-label">10</label><span>range:0 - 0.50</span>
+        <label class="val-label">10</label><span class="range">range:0 - 0.50</span>
         <br>
 
         <label class="pre-label">Fork Frequency: </label>
         <input id="untilFork" class="slider" type="range" min="1" max="20" value="2"
         alt="Approximate number of forks in a secton"
         onchange=sendSliderValToTreeObj(this) onmouseover=setInfoText(this) onmousemove=sliderLabelUpdate(this)>
-        <label class="val-label">2</label><span id="define-untilFork">range:1 - 20</span>
+        <label class="val-label">2</label><span class="range">range:1 - 20</span>
         <br>
 
         <label class="pre-label"><i>Rand</i> Fork Frequency: </label>
         <input id="untilForkR" class="slider" type="range" min="0" max="10" value="5"
         alt="Randomization percent of fork frequency"
         onchange=sendSliderValToTreeObj(this) onmouseover=setInfoText(this) onmousemove=sliderLabelUpdate(this)>
-        <label class="val-label">2</label><span>range:0 - 10</span>
+        <label class="val-label">2</label><span class="range">range:0 - 10</span>
         <br>
         
         <label class="pre-label">Spur Frequency: </label>
         <input id="spurFrequency" class="slider" type="range" min="0" max="5" step="0.25" value="5"
         alt="The random chance of a spur forking off of each segment"
         onchange=sendSliderValToTreeObj(this) onmouseover=setInfoText(this) onmousemove=sliderLabelUpdate(this)>
-        <label class="val-label">2</label><span>range:0 - 5</span>
+        <label class="val-label">2</label><span class="range">range:0 - 5</span>
         <br>
 
         <label class="pre-label">Section Thickness: </label>
         <input id="grow" class="slider" type="range" min="1" max="100" value="5"
         alt="Adjust the thickness (and extent) of the current tree section and thickness of all lower sections"
         onchange=growShrink(this) onmouseover=setInfoText(this) onmousemove=sliderLabelUpdate(this)>
-        <label class="val-label">2</label><span>range:1 - 100</span>
+        <label class="val-label">2</label><span class="range">range:1 - 100</span>
         <br>
         
         <br>
